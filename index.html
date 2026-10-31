@@ -1,0 +1,425 @@
+
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="Lumière Beauty – experiență premium de rezervări online. Proiect demonstrativ MP Creative Studio.">
+<title>Lumière Beauty | Programări Online</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--rose:#b87e88;--dark:#30262b;--muted:#85777b;--cream:#fbf7f3;--blush:#f6e9e7;--gold:#bd9b68;--line:#e9ddd9}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:#fff;color:var(--dark);font-family:"DM Sans",sans-serif}
+button,input,select{font:inherit}
+button{cursor:pointer}
+a{text-decoration:none;color:inherit}
+.container{width:min(1120px,92%);margin:auto}
+.top{background:var(--dark);color:#f4e4de;text-align:center;padding:11px;font-size:11px;letter-spacing:2px}
+header{background:#fffdfb;position:sticky;top:0;z-index:20;border-bottom:1px solid var(--line)}
+.header{display:flex;justify-content:space-between;align-items:center;gap:20px;padding:20px 0}
+.brand{font-family:"Playfair Display",serif;font-size:25px;letter-spacing:1px}
+.brand span{color:var(--rose)}
+nav{display:flex;gap:27px;font-size:12px;font-weight:700;letter-spacing:.5px}
+nav a:hover{color:var(--rose)}
+.btn{display:inline-flex;align-items:center;justify-content:center;background:var(--dark);border:1px solid var(--dark);color:white;padding:14px 22px;border-radius:4px;font-size:12px;font-weight:700;letter-spacing:1px;transition:.2s}
+.btn:hover{background:var(--rose);border-color:var(--rose)}
+.btn.light{background:transparent;color:var(--dark)}
+.btn.light:hover{background:var(--blush)}
+.hero{background:linear-gradient(120deg,#f9efeb,#fffaf5);padding:95px 0}
+.hero-grid{display:grid;grid-template-columns:1fr 1fr;gap:65px;align-items:center}
+.eyebrow{font-size:11px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--rose)}
+h1,h2,h3{font-family:"Playfair Display",serif;font-weight:500}
+h1{font-size:clamp(43px,5.6vw,75px);line-height:1.12;margin:22px 0}
+h1 em{color:var(--rose);font-weight:400}
+.hero p,.intro{color:var(--muted);line-height:1.9;font-size:14px}
+.hero-actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:28px}
+.hero-art{position:relative;min-height:425px;background:linear-gradient(145deg,#ead0cb,#f9f1e9);border-radius:200px 200px 10px 10px;overflow:hidden;display:grid;place-items:center}
+.hero-art::before{content:"";position:absolute;width:260px;height:260px;border:1px solid #fff9;border-radius:50%}
+.hero-art::after{content:"";position:absolute;width:380px;height:380px;border:1px solid #fff8;border-radius:50%}
+.art-center{z-index:1;text-align:center;color:#84565f}
+.art-center .flower{font-size:105px;line-height:1}
+.art-center strong{display:block;font-family:"Playfair Display",serif;font-size:36px;font-weight:400;margin-top:12px}
+.art-center small{letter-spacing:5px;font-size:10px}
+.art-note{position:absolute;right:0;bottom:30px;background:white;padding:17px 24px;font-size:12px;box-shadow:0 12px 40px #4a252019;z-index:2}
+.art-note b{display:block;color:var(--rose);margin-bottom:5px}
+section{padding:85px 0}
+.section-head{text-align:center;max-width:690px;margin:0 auto 45px}
+.section-head h2{font-size:clamp(34px,4vw,49px);margin:13px 0}
+.section-head p{color:var(--muted);line-height:1.8;font-size:14px}
+.services{background:var(--cream)}
+.service-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.service{background:white;border:1px solid var(--line);padding:32px;border-radius:7px;transition:.2s}
+.service:hover{transform:translateY(-4px);box-shadow:0 15px 35px #4a25200e}
+.service-icon{font-size:32px;margin-bottom:17px}
+.service h3{font-size:24px;margin:0 0 12px}
+.service p{color:var(--muted);font-size:13px;line-height:1.8;min-height:48px}
+.service-bottom{border-top:1px solid var(--line);padding-top:17px;display:flex;justify-content:space-between;align-items:center;gap:8px}
+.price{font-weight:700;color:var(--rose);font-size:16px}
+.duration{font-size:11px;color:var(--muted)}
+.service button{border:0;background:none;color:var(--rose);font-weight:700;font-size:12px;padding:10px 0}
+.booking{background:white}
+.booking-layout{display:grid;grid-template-columns:1fr 1fr;gap:30px;align-items:start}
+.panel{background:var(--cream);border:1px solid var(--line);padding:29px;border-radius:9px}
+.panel h3{font-size:25px;margin:0 0 23px}
+.field{margin-bottom:18px}
+.field label{display:block;font-size:12px;font-weight:700;margin-bottom:8px}
+.field input,.field select{width:100%;background:white;border:1px solid #dfd2cf;border-radius:4px;padding:13px 12px;color:var(--dark);outline:none}
+.field input:focus,.field select:focus{border-color:var(--rose)}
+.calendar-head{display:flex;justify-content:space-between;align-items:center;margin:18px 0}
+.calendar-head strong{font-size:14px}
+.calendar-head button{background:white;border:1px solid var(--line);width:35px;height:35px;border-radius:4px}
+.weekdays,.days{display:grid;grid-template-columns:repeat(7,1fr);gap:5px;text-align:center}
+.weekdays span{font-size:10px;color:var(--muted);padding:10px 0}
+.days button{aspect-ratio:1;border:1px solid transparent;background:transparent;border-radius:4px;color:var(--dark);font-size:12px}
+.days button:not(:disabled):hover{border-color:var(--rose)}
+.days button.selected{background:var(--rose);color:white}
+.days button:disabled{opacity:.25;cursor:not-allowed}
+.days .empty{visibility:hidden}
+.hours{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-top:12px}
+.hours button{padding:11px 3px;border:1px solid var(--line);background:white;border-radius:4px;font-size:12px}
+.hours button.selected{background:var(--rose);border-color:var(--rose);color:white}
+.summary{background:#f1e5e1;padding:19px;border-radius:5px;font-size:13px;line-height:2}
+.summary strong{color:#8c5963}
+.submit{width:100%;margin-top:19px}
+.note{font-size:11px;color:var(--muted);line-height:1.7}
+.about{background:var(--blush)}
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:65px;align-items:center}
+.about-visual{height:340px;background:linear-gradient(135deg,#d6b4ae,#f5dfd8);display:grid;place-items:center;border-radius:160px 160px 8px 8px;font-size:115px}
+.about h2{font-size:43px;margin:16px 0}
+.about p{color:#76676b;line-height:1.9;font-size:14px}
+.features{display:grid;grid-template-columns:repeat(3,1fr);gap:25px;margin-top:28px}
+.feature{text-align:center}
+.feature strong{display:block;font-family:"Playfair Display",serif;font-size:25px;color:var(--rose)}
+.feature span{font-size:11px;color:var(--muted)}
+footer{background:var(--dark);color:white;padding:42px 0;text-align:center}
+footer .brand{font-size:27px}
+footer p{font-size:12px;color:#c5b5b8;line-height:1.8}
+.modal{position:fixed;inset:0;background:#21181dcc;display:none;align-items:center;justify-content:center;z-index:100;padding:20px}
+.modal.open{display:flex}
+.modal-box{background:white;width:min(470px,100%);padding:38px;text-align:center;border-radius:8px}
+.modal-icon{font-size:52px}
+.modal-box h2{font-size:34px;margin:15px 0}
+.modal-box p{color:var(--muted);font-size:13px;line-height:1.8}
+@media(max-width:850px){
+ .hero-grid,.booking-layout,.about-grid{grid-template-columns:1fr}
+ .service-grid{grid-template-columns:repeat(2,1fr)}
+ .hero-art{min-height:350px}
+}
+@media(max-width:600px){
+ nav{display:none}
+ .hero{padding:55px 0}
+ section{padding:55px 0}
+ .service-grid,.features{grid-template-columns:1fr}
+ .panel{padding:19px}
+ .hours{grid-template-columns:repeat(3,1fr)}
+ .hero-art{min-height:300px}
+ .art-center .flower{font-size:75px}
+ .about h2{font-size:34px}
+}
+</style>
+</head>
+<body>
+<div class="top">LUMIÈRE BEAUTY · YOUR MOMENT OF BEAUTY</div>
+
+<header>
+<div class="container header">
+<a href="#" class="brand">LUMIÈRE <span>BEAUTY</span></a>
+<nav>
+<a href="#servicii">Servicii</a>
+<a href="#programare">Programări</a>
+<a href="#despre">Despre noi</a>
+</nav>
+<a class="btn" href="#programare">REZERVĂ ACUM</a>
+</div>
+</header>
+
+<main>
+<section class="hero">
+<div class="container hero-grid">
+<div>
+<div class="eyebrow">Beauty & Wellness Studio</div>
+<h1>Frumusețea începe cu <em>tine.</em></h1>
+<p>Un moment de relaxare, atenție și răsfăț. Descoperă serviciile noastre și rezervă-ți experiența preferată, simplu și elegant.</p>
+<div class="hero-actions">
+<a href="#programare" class="btn">FĂ O PROGRAMARE</a>
+<a href="#servicii" class="btn light">DESCOPERĂ SERVICIILE</a>
+</div>
+</div>
+<div class="hero-art">
+<div class="art-center">
+<div class="flower">✿</div>
+<strong>Lumière</strong>
+<small>BEAUTY STUDIO</small>
+</div>
+<div class="art-note"><b>BEAUTY EXPERIENCE</b>Eleganță în fiecare detaliu</div>
+</div>
+</div>
+</section>
+
+<section class="services" id="servicii">
+<div class="container">
+<div class="section-head">
+<div class="eyebrow">Ritualuri de frumusețe</div>
+<h2>Serviciile noastre</h2>
+<p>Alege experiența care ți se potrivește. Prețurile și serviciile sunt demonstrative.</p>
+</div>
+<div class="service-grid" id="serviceGrid"></div>
+</div>
+</section>
+
+<section class="booking" id="programare">
+<div class="container">
+<div class="section-head">
+<div class="eyebrow">Rezervare online</div>
+<h2>Programează-ți momentul</h2>
+<p>Selectează serviciul, data și ora preferată, apoi completează formularul.</p>
+</div>
+<div class="booking-layout">
+<div class="panel">
+<h3>01. Alege programarea</h3>
+<div class="field">
+<label for="serviceSelect">Serviciu</label>
+<select id="serviceSelect"><option value="">Selectează un serviciu</option></select>
+</div>
+<div class="calendar-head">
+<button type="button" id="prevMonth" aria-label="Luna precedentă">‹</button>
+<strong id="monthTitle"></strong>
+<button type="button" id="nextMonth" aria-label="Luna următoare">›</button>
+</div>
+<div class="weekdays">
+<span>Lu</span><span>Ma</span><span>Mi</span><span>Jo</span><span>Vi</span><span>Sâ</span><span>Du</span>
+</div>
+<div class="days" id="calendarDays"></div>
+<div class="field" style="margin-top:22px">
+<label>Alege ora</label>
+<div class="hours" id="hourButtons"></div>
+</div>
+</div>
+
+<div class="panel">
+<h3>02. Datele tale</h3>
+<form id="bookingForm">
+<div class="field">
+<label for="fullName">Nume complet</label>
+<input id="fullName" type="text" autocomplete="name" required placeholder="Nume și prenume">
+</div>
+<div class="field">
+<label for="phone">Telefon</label>
+<input id="phone" type="tel" autocomplete="tel" required placeholder="07xxxxxxxx" pattern="07[0-9]{8}" title="Introdu un număr de telefon din România, cu 10 cifre">
+</div>
+<div class="field">
+<label for="email">Adresă de e-mail</label>
+<input id="email" type="email" autocomplete="email" required placeholder="exemplu@email.com">
+</div>
+<div class="summary" id="summary">
+<strong>Rezumat programare</strong>
+<div id="summaryText">Alege un serviciu, o zi și o oră.</div>
+</div>
+<button type="submit" class="btn submit">CONFIRMĂ PROGRAMAREA DEMO</button>
+<p class="note">Acesta este un proiect demonstrativ pentru portofoliu. Nu se creează rezervări reale și datele introduse nu sunt trimise către un server.</p>
+</form>
+</div>
+</div>
+</div>
+</section>
+
+<section class="about" id="despre">
+<div class="container about-grid">
+<div class="about-visual">✿</div>
+<div>
+<div class="eyebrow">Despre concept</div>
+<h2>O experiență digitală la fel de elegantă ca salonul.</h2>
+<p>Lumière Beauty este un concept demonstrativ de website pentru saloane, centre de beauty și servicii wellness. Clientele pot explora serviciile și pot simula o programare în câțiva pași.</p>
+<div class="features">
+<div class="feature"><strong>01</strong><span>Alege serviciul</span></div>
+<div class="feature"><strong>02</strong><span>Selectează data</span></div>
+<div class="feature"><strong>03</strong><span>Confirmă demo</span></div>
+</div>
+</div>
+</div>
+</section>
+</main>
+
+<footer>
+<div class="container">
+<div class="brand">LUMIÈRE <span>BEAUTY</span></div>
+<p>Online Booking Experience · Concept demonstrativ</p>
+<p>Proiect realizat pentru portofoliul MP Creative Studio · © 2026</p>
+</div>
+</footer>
+
+<div class="modal" id="confirmationModal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+<div class="modal-box">
+<div class="modal-icon">✿</div>
+<h2 id="modalTitle">Programare simulată!</h2>
+<p id="modalMessage"></p>
+<p><strong>Acesta este doar un demo.</strong> Nu a fost transmisă sau înregistrată nicio rezervare.</p>
+<button class="btn" type="button" id="closeModal">ÎNCHIDE</button>
+</div>
+</div>
+
+<script>
+const services=[
+{id:"manichiura",name:"Manichiură semipermanentă",price:130,duration:75,icon:"💅",description:"Îngrijire atentă și unghii impecabile, într-un stil elegant."},
+{id:"pedichiura",name:"Pedichiură SPA",price:150,duration:90,icon:"🌸",description:"Un ritual de îngrijire și relaxare pentru picioare."},
+{id:"facial",name:"Tratament facial",price:220,duration:60,icon:"✨",description:"Ritual delicat pentru îngrijirea și revitalizarea tenului."},
+{id:"gene",name:"Laminare gene",price:170,duration:60,icon:"🪞",description:"Accentuarea naturală a privirii, cu un rezultat rafinat."},
+{id:"sprancene",name:"Stilizare sprâncene",price:85,duration:30,icon:"🌿",description:"Definire și armonizare a formei sprâncenelor."},
+{id:"machiaj",name:"Machiaj profesional",price:250,duration:90,icon:"💄",description:"Machiaj elegant pentru evenimente și momente speciale."}
+];
+
+const grid=document.getElementById("serviceGrid");
+const select=document.getElementById("serviceSelect");
+const calendar=document.getElementById("calendarDays");
+const monthTitle=document.getElementById("monthTitle");
+const hoursContainer=document.getElementById("hourButtons");
+const summaryText=document.getElementById("summaryText");
+const today=new Date();
+today.setHours(0,0,0,0);
+let displayedMonth=new Date(today.getFullYear(),today.getMonth(),1);
+let selectedDate=null;
+let selectedHour=null;
+const hours=["09:00","10:00","11:00","12:00","13:00","14:00","15:00","16:00","17:00","18:00"];
+
+function dateKey(date){
+return date.getFullYear()+"-"+String(date.getMonth()+1).padStart(2,"0")+"-"+String(date.getDate()).padStart(2,"0");
+}
+function prettyDate(date){
+return date.toLocaleDateString("ro-RO",{day:"numeric",month:"long",year:"numeric"});
+}
+function updateSummary(){
+const service=services.find(s=>s.id===select.value);
+const parts=[];
+if(service)parts.push(service.name+" · "+service.price+" lei");
+if(selectedDate)parts.push(prettyDate(selectedDate));
+if(selectedHour)parts.push("Ora "+selectedHour);
+summaryText.textContent=parts.length?parts.join(" | "):"Alege un serviciu, o zi și o oră.";
+}
+function chooseService(id){
+select.value=id;
+updateSummary();
+document.getElementById("programare").scrollIntoView({behavior:"smooth"});
+}
+services.forEach(service=>{
+const card=document.createElement("article");
+card.className="service";
+const icon=document.createElement("div");
+icon.className="service-icon";
+icon.textContent=service.icon;
+const title=document.createElement("h3");
+title.textContent=service.name;
+const desc=document.createElement("p");
+desc.textContent=service.description;
+const bottom=document.createElement("div");
+bottom.className="service-bottom";
+const info=document.createElement("div");
+const price=document.createElement("div");
+price.className="price";
+price.textContent=service.price+" lei";
+const duration=document.createElement("div");
+duration.className="duration";
+duration.textContent=service.duration+" minute";
+info.append(price,duration);
+const button=document.createElement("button");
+button.type="button";
+button.textContent="ALEGE →";
+button.addEventListener("click",()=>chooseService(service.id));
+bottom.append(info,button);
+card.append(icon,title,desc,bottom);
+grid.appendChild(card);
+const option=document.createElement("option");
+option.value=service.id;
+option.textContent=service.name+" · "+service.price+" lei";
+select.appendChild(option);
+});
+function renderCalendar(){
+calendar.innerHTML="";
+monthTitle.textContent=displayedMonth.toLocaleDateString("ro-RO",{month:"long",year:"numeric"});
+const year=displayedMonth.getFullYear();
+const month=displayedMonth.getMonth();
+const firstWeekday=(new Date(year,month,1).getDay()+6)%7;
+const daysInMonth=new Date(year,month+1,0).getDate();
+const maxDate=new Date(today);
+maxDate.setMonth(maxDate.getMonth()+3);
+for(let i=0;i<firstWeekday;i++){
+const blank=document.createElement("span");
+blank.className="empty";
+calendar.appendChild(blank);
+}
+for(let day=1;day<=daysInMonth;day++){
+const date=new Date(year,month,day);
+const btn=document.createElement("button");
+btn.type="button";
+btn.textContent=day;
+const unavailable=date<today||date>maxDate||date.getDay()===0;
+btn.disabled=unavailable;
+if(selectedDate&&dateKey(selectedDate)===dateKey(date))btn.classList.add("selected");
+btn.addEventListener("click",()=>{
+selectedDate=date;
+selectedHour=null;
+renderCalendar();
+renderHours();
+updateSummary();
+});
+calendar.appendChild(btn);
+}
+document.getElementById("prevMonth").disabled=
+year===today.getFullYear()&&month===today.getMonth();
+const lastMonth=new Date(today.getFullYear(),today.getMonth()+3,1);
+document.getElementById("nextMonth").disabled=
+year===lastMonth.getFullYear()&&month===lastMonth.getMonth();
+}
+function renderHours(){
+hoursContainer.innerHTML="";
+hours.forEach(hour=>{
+const btn=document.createElement("button");
+btn.type="button";
+btn.textContent=hour;
+btn.disabled=!selectedDate;
+if(selectedHour===hour)btn.classList.add("selected");
+btn.addEventListener("click",()=>{
+selectedHour=hour;
+renderHours();
+updateSummary();
+});
+hoursContainer.appendChild(btn);
+});
+}
+document.getElementById("prevMonth").addEventListener("click",()=>{
+displayedMonth=new Date(displayedMonth.getFullYear(),displayedMonth.getMonth()-1,1);
+renderCalendar();
+});
+document.getElementById("nextMonth").addEventListener("click",()=>{
+displayedMonth=new Date(displayedMonth.getFullYear(),displayedMonth.getMonth()+1,1);
+renderCalendar();
+});
+select.addEventListener("change",updateSummary);
+document.getElementById("bookingForm").addEventListener("submit",event=>{
+event.preventDefault();
+const service=services.find(s=>s.id===select.value);
+if(!service||!selectedDate||!selectedHour){
+alert("Te rugăm să selectezi serviciul, data și ora.");
+return;
+}
+const message=document.getElementById("modalMessage");
+message.textContent="Ai selectat "+service.name+", pentru "+prettyDate(selectedDate)+", la ora "+selectedHour+".";
+document.getElementById("confirmationModal").classList.add("open");
+});
+function closeModal(){
+document.getElementById("confirmationModal").classList.remove("open");
+}
+document.getElementById("closeModal").addEventListener("click",closeModal);
+document.getElementById("confirmationModal").addEventListener("click",event=>{
+if(event.target.id==="confirmationModal")closeModal();
+});
+document.addEventListener("keydown",event=>{
+if(event.key==="Escape")closeModal();
+});
+renderCalendar();
+renderHours();
+updateSummary();
+</script>
+</body>
+</html>
